@@ -31,7 +31,7 @@ const createTicket = (req, res, next) => {
       const newTicket = new Ticket({
         tripId,
         userId,
-        seats: seatCodes.map((code) => new Seat({code})),
+        seats: seatCodes.map((code) => new Seat({code, isBooked: true})),
         totalPrice: trip.price * seatCodes.length,
       });
 
