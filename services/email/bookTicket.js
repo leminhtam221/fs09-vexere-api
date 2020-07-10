@@ -6,7 +6,7 @@ const template = fs.readFileSync("services/email/bookingTicketEmailTemplate.hjs"
 // const template = fs.readFileSync("./bookingTicketEmailTemplate.hjs", "utf-8");
 const compiledTemplate = hogan.compile(template);
 
-module.exports.sendBookTicketEmail = (user, trip, ticket) => {
+const sendBookTicketEmail = (user, trip, ticket) => {
   const transport = {
     host: "smtp.gmail.com",
     port: 587,
@@ -39,4 +39,8 @@ module.exports.sendBookTicketEmail = (user, trip, ticket) => {
     if (err) return console.log(err);
     console.log("Send mail successfully");
   });
+};
+
+module.exports = {
+  sendBookTicketEmail,
 };

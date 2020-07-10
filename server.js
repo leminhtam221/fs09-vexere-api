@@ -23,7 +23,6 @@ app.use("/api/user/", require("./routes/api/controller/user"));
 app.use("/api/ticket/", require("./routes/api/controller/tickets"));
 
 const port = process.env.PORT || config.port;
-
 app.listen(port, () => {
   console.log(`app is running on port ${port}`);
 });
